@@ -14,10 +14,11 @@ export default class Topbar extends React.Component {
     super(props, context)
   }
 
-  saveFile() {
+  saveFile = () => {
     console.log("save")
-    var myCustomData = { foo: 'bar' }
-    var event = new CustomEvent('myEvent', { detail: myCustomData })
+    let editorContent = this.props.specSelectors.specStr()
+    var swaggerData = { swagger: editorContent }
+    var event = new CustomEvent('SAVE_SWAGGER', { detail: swaggerData })
     window.parent.document.dispatchEvent(event)
   }
 
