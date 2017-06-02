@@ -12,6 +12,9 @@ import "./topbar.less"
 export default class Topbar extends React.Component {
   constructor(props, context) {
     super(props, context)
+    window.document.addEventListener('SET_SWAGGER_CONTENT', (e) => {
+      this.props.specActions.updateSpec(e.detail.swagger)
+    }, false )
   }
 
   saveFile = () => {
