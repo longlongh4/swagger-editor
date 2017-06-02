@@ -16,6 +16,9 @@ export default class Topbar extends React.Component {
 
   saveFile() {
     console.log("save")
+    var myCustomData = { foo: 'bar' }
+    var event = new CustomEvent('myEvent', { detail: myCustomData })
+    window.parent.document.dispatchEvent(event)
   }
 
   render() {
