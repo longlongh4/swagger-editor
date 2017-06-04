@@ -1,4 +1,3 @@
-import TopbarPlugin from "./topbar"
 import StandaloneLayout from "./standalone-layout"
 
 let StandaloneLayoutPlugin = function() {
@@ -11,7 +10,6 @@ let StandaloneLayoutPlugin = function() {
 
 module.exports = function () {
   return [
-    TopbarPlugin,
     StandaloneLayoutPlugin
   ]
 }

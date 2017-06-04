@@ -7,15 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="setSwaggerContent()">Click me</button>
+    <button onclick="setSwaggerContent()">set swagger</button>
+    <button onclick="getSwaggerContent()">get swagger</button>
     <iframe id="editorFrame" src="./index.html" width="100%" height="600"> </iframe>
 
     <script>
+    window.document.addEventListener('RETURN_SWAGGER', (e) => {
+      console.log('-----------------')
+      console.log(e)
+    }, false )
+
     function setSwaggerContent() {
         var frame = document.getElementById('editorFrame')
         console.log(frame);
         var myCustomData = { swagger: 'bar' }
         var event = new CustomEvent('SET_SWAGGER_CONTENT', { detail: myCustomData })
+        console.log(event)
+        frame.contentWindow.document.dispatchEvent(event);
+    };
+    function getSwaggerContent() {
+        var frame = document.getElementById('editorFrame')
+        var event = new CustomEvent('GET_SWAGGER_CONTENT', { detail: {} })
         console.log(event)
         frame.contentWindow.document.dispatchEvent(event);
     };

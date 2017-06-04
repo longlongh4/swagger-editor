@@ -41,5 +41,6 @@ export default function(system) {
 }
 
 function saveContentToStorage(str) {
+  localStorage.setItem('swagger-editor-content-time', new Date().getTime())
   return localStorage.setItem(CONTENT_KEY, str)
 }
