@@ -41,6 +41,8 @@ export default function(system) {
 }
 
 function saveContentToStorage(str) {
+  let event = new CustomEvent('SWAGGER_UPDATE', { })
+  window.parent.document.dispatchEvent(event)
   localStorage.setItem('swagger-editor-content-time', new Date().getTime())
   return localStorage.setItem(CONTENT_KEY, str)
 }
